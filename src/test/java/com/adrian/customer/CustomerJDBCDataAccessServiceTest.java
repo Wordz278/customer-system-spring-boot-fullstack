@@ -100,7 +100,7 @@ class CustomerJDBCDataAccessServiceTest extends AbstractTestcontainers {
         underTest.insertCustomer(customer);
 
         //When
-        boolean actual = underTest.existsPersonWithEmail(email);
+        boolean actual = underTest.existsCustomerWithEmail(email);
 
         //Then
         assertThat(actual).isTrue();
@@ -113,7 +113,7 @@ class CustomerJDBCDataAccessServiceTest extends AbstractTestcontainers {
 
 
         //When
-        boolean actual = underTest.existsPersonWithEmail(email);
+        boolean actual = underTest.existsCustomerWithEmail(email);
 
         //Then
         assertThat(actual).isFalse();
@@ -141,7 +141,7 @@ class CustomerJDBCDataAccessServiceTest extends AbstractTestcontainers {
                 .orElseThrow();
 
         //When
-        boolean actual = underTest.existsPersonWithId(id);
+        boolean actual = underTest.existsCustomerById(id);
 
         //Then
         assertThat(actual).isTrue();
@@ -153,7 +153,7 @@ class CustomerJDBCDataAccessServiceTest extends AbstractTestcontainers {
         int id = -1;
 
         //When
-        boolean actual = underTest.existsPersonWithId(id);
+        boolean actual = underTest.existsCustomerById(id);
 
         //Then
         assertThat(actual).isFalse();
