@@ -4,3 +4,6 @@ target/
 # IntelliJ
 .idea/
 *.iml
+
+# Compiled Java files
+*.class
