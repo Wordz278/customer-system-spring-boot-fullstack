@@ -3,6 +3,8 @@ target/
 
 # IntelliJ
 .idea/
+.idea/compiler.xml
+.idea/misc.xml
 *.iml
 
 # Compiled Java files
