@@ -9,3 +9,6 @@ target/
 
 # Compiled Java files
 *.class
+
+# Production Safe Passwords
+.env
