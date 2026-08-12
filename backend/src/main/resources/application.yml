@@ -6,8 +6,8 @@ server:
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5332/customer
-    username: wordz278
-    password: Kwambi008
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: validate
