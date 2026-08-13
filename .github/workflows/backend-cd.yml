@@ -47,9 +47,9 @@ jobs:
       # --------------------------------------------------
       - name: Send Slack Message - Deployment started
         run: |
-          curl -X POST -H 'Content-type: application/json' 
-          --data '
-            {"text":"Deployment started :progress_bar: :fingerscrossed:"}
+          curl -X POST -H 'Content-type: application/json' \
+          --data ' \
+            {"text":"Deployment started :progress_bar: :fingerscrossed:"} \
           ' ${{ secrets.SLACK_WEBHOOK_URL }}
 
       # --------------------------------------------------
@@ -80,9 +80,9 @@ jobs:
       # --------------------------------------------------
       - name: Send Slack Message
         run: |
-          curl -X POST -H 'Content-type: application/json' 
-          --data '
-            {"text":":maven: Building with Maven :maven:"}
+          curl -X POST -H 'Content-type: application/json' \
+          --data ' \
+            {"text":":maven: Building with Maven :maven:"} \
           ' ${{ secrets.SLACK_WEBHOOK_URL }}
 
       # --------------------------------------------------
@@ -99,9 +99,9 @@ jobs:
       # --------------------------------------------------
       - name: Send Slack Message
         run: |
-          curl -X POST -H 'Content-type: application/json' 
-          --data '
-            {"text":":docker: Image tag:${{steps.build-number.outputs.BUILD_NUMBER}} pushed to https://hub.docker.com/repository/docker/wordz278/adrian-api"}
+          curl -X POST -H 'Content-type: application/json' \
+          --data ' \
+            {"text":":docker: Image tag:${{steps.build-number.outputs.BUILD_NUMBER}} pushed to https://hub.docker.com/repository/docker/wordz278/adrian-api"} \
           ' ${{ secrets.SLACK_WEBHOOK_URL }}
 
       # --------------------------------------------------
@@ -120,9 +120,9 @@ jobs:
       # --------------------------------------------------
       - name: Send Slack Message
         run: |
-          curl -X POST -H 'Content-type: application/json' 
-          --data '
-            {"text":":aws: Starting deployment to Elastic Beanstalk"}
+          curl -X POST -H 'Content-type: application/json' \
+          --data ' \
+            {"text":":aws: Starting deployment to Elastic Beanstalk"} \
           ' ${{ secrets.SLACK_WEBHOOK_URL }}
 
       # --------------------------------------------------
@@ -145,9 +145,9 @@ jobs:
       # --------------------------------------------------
       - name: Send Slack Message
         run: |
-          curl -X POST -H 'Content-type: application/json' 
-          --data '
-            {"text":":githubloading: Committing to repo https://github.com/Wordz278/customer-system-spring-boot-fullstack/"}
+          curl -X POST -H 'Content-type: application/json' \
+          --data ' \
+            {"text":":githubloading: Committing to repo https://github.com/Wordz278/customer-system-spring-boot-fullstack/"} \
           ' ${{ secrets.SLACK_WEBHOOK_URL }}
 
       # --------------------------------------------------
@@ -166,9 +166,9 @@ jobs:
       # --------------------------------------------------
       - name: Send Slack Message
         run: |
-          curl -X POST -H 'Content-type: application/json' 
-          --data '
-            {"text":"Deployment and commit completed :github_check_mark: :part_blob: - http://adrian-api-env.eba-2qgz2vjx.af-south-1.elasticbeanstalk.com/"}
+          curl -X POST -H 'Content-type: application/json' \
+          --data ' \
+            {"text":"Deployment and commit completed :github_check_mark: :part_blob: - http://adrian-api-env.eba-2qgz2vjx.af-south-1.elasticbeanstalk.com/"} \
           ' ${{ secrets.SLACK_WEBHOOK_URL }}
 
       # --------------------------------------------------
@@ -177,7 +177,7 @@ jobs:
       - name: Send Slack Message
         if: always()
         run: |
-          curl -X POST -H 'Content-type: application/json' 
-          --data '
-            {"text":"Job Status ${{job.status }}"}
+          curl -X POST -H 'Content-type: application/json' \
+          --data ' \
+            {"text":"Job Status ${{job.status }}"} \
           ' ${{ secrets.SLACK_WEBHOOK_URL }}
