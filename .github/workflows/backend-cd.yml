@@ -38,6 +38,11 @@ jobs:
 
     steps:
       # --------------------------------------------------
+      # Checkout repository
+      # --------------------------------------------------
+      - uses: actions/checkout@v7
+
+      # --------------------------------------------------
       # Slack - Deployment started
       # --------------------------------------------------
       - name: Send Slack Message - Deployment started
@@ -46,12 +51,6 @@ jobs:
           --data ' \
             {"text":"Deployment started :progress_bar: :fingerscrossed:"} \
           ' ${{ secrets.SLACK_WEBHOOK_URL }}
-          
-
-      # --------------------------------------------------
-      # Checkout repository
-      # --------------------------------------------------
-      - uses: actions/checkout@v7
 
       # --------------------------------------------------
       # Setup Java
