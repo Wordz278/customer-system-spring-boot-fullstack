@@ -47,7 +47,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
       - name: Set build number
         id: build-number
-        run: echo "BUILD_NUMBER=$(date '+%d.%m.%Y.%H.%M.%S')" >> $GITHUB_OUTPUT
+        run: echo "BUILD_NUMBER=$(TZ=Africa/Johannesburg date '+%d.%m.%Y.%H.%M.%S')" >> $GITHUB_OUTPUT
       - name: Build Package Push with Maven
         env:
           POSTGRES_USERNAME: ${{ secrets.POSTGRES_USERNAME }}
