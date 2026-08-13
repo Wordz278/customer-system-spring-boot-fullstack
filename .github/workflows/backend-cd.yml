@@ -42,6 +42,18 @@ jobs:
       # --------------------------------------------------
       - uses: actions/checkout@v7
 
+  # --------------------------------------------------
+  # Verify Slack webhook secret
+  # --------------------------------------------------
+      - name: Verify Slack Webhook
+        run: |
+          if [ -z "${{ secrets.SLACK_WEBHOOK_URL }}" ]; then
+            echo "SLACK_WEBHOOK_URL is NOT available"
+            exit 1
+          else
+            echo "SLACK_WEBHOOK_URL is available"
+          fi
+
       # --------------------------------------------------
       # Slack - Deployment started
       # --------------------------------------------------
