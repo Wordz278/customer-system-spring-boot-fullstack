@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "adrian-api",
-      "image": "wordz278/adrian-api:latest",
+      "image": "wordz278/adrian-api:13.08.2026.01.04.16",
       "essential": true,
       "memory": 512,
       "portMappings": [
