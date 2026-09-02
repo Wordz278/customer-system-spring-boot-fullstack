@@ -8,8 +8,8 @@ on:
       - backend/**
 
 jobs:
-  name: CI - Build Backend
   build:
+    name: CI - Build Backend
     runs-on: ubuntu-latest
     services:
       postgres:
