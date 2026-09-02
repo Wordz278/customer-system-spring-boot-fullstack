@@ -8,6 +8,7 @@ on:
       - backend/**
 
 jobs:
+  name: CI - Build Backend
   build:
     runs-on: ubuntu-latest
     services:
