@@ -1,5 +1,8 @@
 name: CI - Build Backend
 
+# --------------------------------------------------
+# Workflow trigger
+# --------------------------------------------------
 on:
   pull_request:
     branches:
@@ -11,6 +14,10 @@ jobs:
   build:
     name: CI - Build Backend
     runs-on: ubuntu-latest
+
+    # --------------------------------------------------
+    # PostgreSQL service container
+    # --------------------------------------------------
     services:
       postgres:
         image: postgres:18.3
@@ -25,17 +32,34 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+          
 
+    # --------------------------------------------------
+    # Set backend as the working directory
+    # --------------------------------------------------
     defaults:
       run:
         working-directory: ./backend
+
+
     steps:
+      # --------------------------------------------------
+      # Checkout repository
+      # --------------------------------------------------
       - uses: actions/checkout@v7
+
+      # --------------------------------------------------
+      # Setup Java 17 and Maven dependency caching
+      # --------------------------------------------------
       - uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
           java-version: '17'
           cache: 'maven'
+
+      # --------------------------------------------------
+      # Build backend and run unit/integration tests
+      # --------------------------------------------------
       - name: Build and run Unit/Integration Tests with Maven
         env:
           POSTGRES_USERNAME: ${{ secrets.POSTGRES_USERNAME }}
