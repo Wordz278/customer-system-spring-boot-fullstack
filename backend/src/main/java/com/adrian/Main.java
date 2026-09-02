@@ -13,7 +13,6 @@ import java.util.Random;
 
 @SpringBootApplication
 public class Main {
-
     public static void main(String[] args){
         SpringApplication.run(Main.class, args);
     }
@@ -34,5 +33,4 @@ public class Main {
             customerRepository.save(customer);
         };
     }
-
 }
